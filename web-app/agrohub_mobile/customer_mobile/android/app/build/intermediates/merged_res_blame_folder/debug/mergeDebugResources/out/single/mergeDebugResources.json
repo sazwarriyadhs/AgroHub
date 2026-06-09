@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.example.agrohub_customer.app-debug-101:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.example.agrohub_customer.app-main-103:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.agrohub_customer.app-debug-101:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.example.agrohub_customer.app-main-103:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.agrohub_customer.app-debug-101:/drawable-v21_launch_background.xml.flat",
+        "source": "com.example.agrohub_customer.app-main-103:/drawable-v21/launch_background.xml"
+    },
+    {
+        "merged": "com.example.agrohub_customer.app-debug-101:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.example.agrohub_customer.app-main-103:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.agrohub_customer.app-debug-101:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.example.agrohub_customer.app-main-103:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.agrohub_customer.app-debug-101:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.example.agrohub_customer.app-main-103:/mipmap-hdpi/ic_launcher.png"
+    }
+]

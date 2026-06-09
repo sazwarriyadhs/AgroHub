@@ -1,0 +1,598 @@
+/* app/globals.css - FULL VERSION */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   ROOT VARIABLES
+========================================================= */
+
+@layer base {
+  :root {
+    /* COLORS */
+    --background: 210 20% 98%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 142 72% 29%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 142 30% 96%;
+    --secondary-foreground: 142 72% 29%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 142 50% 95%;
+    --accent-foreground: 142 72% 29%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 72% 29%;
+
+    --radius: 1rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased overflow-x-hidden;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  ::selection {
+    @apply bg-green-600 text-white;
+  }
+
+  img {
+    @apply select-none;
+  }
+}
+
+/* =========================================================
+   COMPONENTS
+========================================================= */
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-green-600 via-emerald-600 to-lime-500 bg-clip-text text-transparent;
+  }
+
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-xl;
+  }
+
+  .enterprise-card {
+    @apply bg-white rounded-[28px] border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-2xl bg-green-700 px-6 py-3 text-white font-semibold hover:bg-green-800 transition-all duration-300 shadow-lg hover:shadow-green-200;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-3 text-slate-700 font-semibold hover:bg-slate-50 transition-all duration-300;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-black tracking-tight text-slate-900;
+  }
+
+  .section-subtitle {
+    @apply text-slate-500 mt-2 text-base md:text-lg;
+  }
+
+  .hero-gradient {
+    @apply bg-gradient-to-br from-green-950 via-emerald-900 to-green-700;
+  }
+
+  .hover-lift {
+    @apply hover:-translate-y-1 hover:shadow-2xl transition-all duration-300;
+  }
+
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+}
+
+/* =========================================================
+   PROSE STYLES FOR ARTICLE CONTENT (RICH TEXT)
+========================================================= */
+
+@layer components {
+  .prose {
+    @apply text-slate-700;
+  }
+
+  .prose h1 {
+    @apply text-3xl md:text-4xl font-black text-slate-900 mt-8 mb-4;
+  }
+
+  .prose h2 {
+    @apply text-2xl md:text-3xl font-black text-slate-900 mt-8 mb-4 pb-2 border-b border-slate-200;
+  }
+
+  .prose h3 {
+    @apply text-xl md:text-2xl font-bold text-slate-800 mt-6 mb-3;
+  }
+
+  .prose h4 {
+    @apply text-lg font-bold text-slate-800 mt-4 mb-2;
+  }
+
+  .prose p {
+    @apply text-slate-700 leading-relaxed mb-4 text-base md:text-lg;
+  }
+
+  .prose strong {
+    @apply font-bold text-green-700;
+  }
+
+  .prose em {
+    @apply italic text-slate-600;
+  }
+
+  .prose ul {
+    @apply list-disc list-inside space-y-2 mb-4 ml-4;
+  }
+
+  .prose ol {
+    @apply list-decimal list-inside space-y-2 mb-4 ml-4;
+  }
+
+  .prose li {
+    @apply text-slate-700 leading-relaxed;
+  }
+
+  .prose li::marker {
+    @apply text-green-600;
+  }
+
+  .prose a {
+    @apply text-green-600 hover:text-green-700 underline decoration-green-200 hover:decoration-green-600 transition;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-green-500 pl-4 py-2 my-4 italic text-slate-600 bg-green-50 rounded-r-xl;
+  }
+
+  .prose code {
+    @apply bg-slate-100 text-green-700 px-1.5 py-0.5 rounded-md text-sm font-mono;
+  }
+
+  .prose pre {
+    @apply bg-slate-800 text-slate-100 p-4 rounded-xl overflow-x-auto my-4;
+  }
+
+  .prose pre code {
+    @apply bg-transparent text-inherit p-0;
+  }
+
+  .prose img {
+    @apply rounded-2xl my-6 shadow-lg;
+  }
+
+  .prose hr {
+    @apply my-8 border-slate-200;
+  }
+
+  .prose table {
+    @apply w-full my-6 border-collapse;
+  }
+
+  .prose th {
+    @apply bg-slate-100 text-slate-800 font-bold p-3 border border-slate-200;
+  }
+
+  .prose td {
+    @apply p-3 border border-slate-200;
+  }
+
+  /* Stats Grid untuk artikel */
+  .prose .stats-grid {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-4 my-6;
+  }
+
+  .prose .stat-card {
+    @apply bg-green-50 p-4 rounded-2xl text-center;
+  }
+
+  .prose .stat-number {
+    @apply text-2xl md:text-3xl font-black text-green-700;
+  }
+
+  .prose .stat-label {
+    @apply text-sm text-slate-600;
+  }
+
+  /* Quote styling */
+  .prose .quote {
+    @apply bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-2xl my-6 border-l-4 border-green-500;
+  }
+
+  .prose .quote-text {
+    @apply text-lg italic text-slate-700;
+  }
+
+  .prose .quote-author {
+    @apply text-sm font-semibold text-green-700 mt-3;
+  }
+
+  /* Highlight box */
+  .prose .highlight-box {
+    @apply bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4 rounded-r-xl;
+  }
+
+  /* Info box */
+  .prose .info-box {
+    @apply bg-blue-50 border-l-4 border-blue-500 p-4 my-4 rounded-r-xl;
+  }
+
+  /* Warning box */
+  .prose .warning-box {
+    @apply bg-red-50 border-l-4 border-red-500 p-4 my-4 rounded-r-xl;
+  }
+
+  /* Success box */
+  .prose .success-box {
+    @apply bg-green-50 border-l-4 border-green-500 p-4 my-4 rounded-r-xl;
+  }
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@layer utilities {
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes bounce-gentle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  @keyframes pulse-gentle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.4s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.3s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.4s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.4s ease-out;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounce-gentle 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-gentle {
+    animation: pulse-gentle 2s ease-in-out infinite;
+  }
+
+  .transition-smooth {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+  .transition-fast {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  .transition-slow {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
+  }
+}
+
+/* =========================================================
+   UTILITIES
+========================================================= */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-slate-100 rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full hover:bg-slate-400;
+  }
+
+  .bg-grid-white {
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .bg-grid-slate {
+    background-image: 
+      linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .bg-dot-pattern {
+    background-image: radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .bg-dot-pattern-white {
+    background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+/* =========================================================
+   SKELETON LOADING
+========================================================= */
+
+@layer components {
+  .skeleton {
+    @apply bg-slate-200 animate-pulse rounded-xl;
+  }
+
+  .skeleton-text {
+    @apply h-4 bg-slate-200 rounded-lg animate-pulse;
+  }
+
+  .skeleton-title {
+    @apply h-8 bg-slate-200 rounded-lg animate-pulse;
+  }
+
+  .skeleton-image {
+    @apply bg-slate-200 animate-pulse rounded-2xl;
+  }
+
+  .skeleton-card {
+    @apply bg-white rounded-2xl border border-slate-100 p-4;
+  }
+}
+
+/* =========================================================
+   CUSTOM SCROLLBAR
+========================================================= */
+
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full hover:bg-slate-400;
+  }
+}
+
+/* =========================================================
+   PRINT STYLES
+========================================================= */
+
+@media print {
+  header, footer, aside, .no-print {
+    display: none !important;
+  }
+
+  body {
+    @apply bg-white text-black;
+  }
+
+  .prose {
+    @apply text-black;
+  }
+
+  .prose h1, .prose h2, .prose h3 {
+    @apply text-black;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  img {
+    max-width: 100%;
+    page-break-inside: avoid;
+  }
+
+  p, h1, h2, h3, h4, h5, h6 {
+    page-break-inside: avoid;
+  }
+}
+
+/* =========================================================
+   DARK MODE SUPPORT (OPTIONAL)
+========================================================= */
+
+@media (prefers-color-scheme: dark) {
+  .dark\:bg-slate-900 {
+    background-color: #0f172a;
+  }
+
+  .dark\:text-white {
+    color: #ffffff;
+  }
+}
+
+/* =========================================================
+   FOCUS STYLES
+========================================================= */
+
+@layer base {
+  *:focus-visible {
+    @apply outline-none ring-2 ring-green-500 ring-offset-2;
+  }
+}
+
+/* =========================================================
+   DISABLED STATE
+========================================================= */
+
+@layer components {
+  .disabled, button:disabled, input:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+}
+
+/* =========================================================
+   CONTAINER QUERIES (RESPONSIVE)
+========================================================= */
+
+@layer utilities {
+  @container (min-width: 640px) {
+    .cq-sm\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @container (min-width: 768px) {
+    .cq-md\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @container (min-width: 1024px) {
+    .cq-lg\:grid-cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+}

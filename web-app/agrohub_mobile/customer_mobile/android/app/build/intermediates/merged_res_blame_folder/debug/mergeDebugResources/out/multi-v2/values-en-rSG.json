@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.agrohub_customer.app-mergeDebugResources-99:/values-en-rSG/values-en-rSG.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\ADMIN-DELL 14 5430\\.gradle\\caches\\8.14.3\\transforms\\362bd1dfcdac585044a7c6cf20f617ed\\transformed\\jetified-play-services-wallet-19.5.0\\res\\values-en-rSG\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6",
+                        "startColumns": "0,0,0",
+                        "startOffsets": "206,268,325",
+                        "endColumns": "61,56,70",
+                        "endOffsets": "267,324,395"
+                    },
+                    "to": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,121,182",
+                        "endColumns": "65,60,74",
+                        "endOffsets": "116,177,252"
+                    }
+                }
+            ]
+        }
+    ]
+}

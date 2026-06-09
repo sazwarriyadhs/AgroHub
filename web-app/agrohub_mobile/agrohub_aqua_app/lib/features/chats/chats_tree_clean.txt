@@ -1,0 +1,14 @@
+\data
+\domain
+\presentation
+\chats_structure.txt
+\chats_tree_clean.txt
+\data\datasource
+\data\models
+\data\repositories
+\domain\entities
+\domain\repositories
+\domain\usecases
+\presentation\bloc
+\presentation\screens
+\presentation\widgets

@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.agrohub_customer.app-mergeDebugResources-99:/values-ny/values-ny.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\ADMIN-DELL 14 5430\\.gradle\\caches\\8.14.3\\transforms\\445b4311929926f2fd857657781c347c\\transformed\\jetified-hcaptcha-23.1.0\\res\\values-ny\\values-ny.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "88",
+                        "endOffsets": "139"
+                    }
+                }
+            ]
+        }
+    ]
+}

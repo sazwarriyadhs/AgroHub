@@ -1,0 +1,17 @@
+Folder PATH listing for volume OS
+Volume serial number is 0000008F 6CFE:E33D
+C:.
+¦   chats_structure.txt
+¦   
++---data
+¦   +---datasource
+¦   +---models
+¦   +---repositories
++---domain
+¦   +---entities
+¦   +---repositories
+¦   +---usecases
++---presentation
+    +---bloc
+    +---screens
+    +---widgets

@@ -1,0 +1,100 @@
+package routes
+
+import (
+    "database/sql"
+    "net/http"
+    "github.com/gin-gonic/gin"
+
+    "agrohub-backend/internal/config"
+    "agrohub-backend/internal/controllers"
+    "agrohub-backend/internal/middleware"
+    "agrohub-backend/internal/repositories"
+    "agrohub-backend/internal/services"
+)
+
+func SetupRoutes(cfg *config.Config, db *sql.DB) *gin.Engine {
+    router := gin.Default()
+
+    router.Use(middleware.CORSMiddleware())
+
+    // Health check
+    router.GET("/health", func(c *gin.Context) {
+        c.JSON(200, gin.H{
+            "status":      "healthy",
+            "message":     "AgroHub Backend Running",
+            "environment": cfg.AppEnv,
+            "port":        cfg.Port,
+        })
+    })
+
+    router.GET("/", func(c *gin.Context) {
+        c.JSON(200, gin.H{
+            "name":    "AgroHub API",
+            "version": "1.0.0",
+            "status":  "running",
+        })
+    })
+
+    // Redirects untuk frontend (biar gak 404)
+    router.GET("/products", func(c *gin.Context) {
+        c.Redirect(http.StatusMovedPermanently, "/api/v1/products")
+    })
+    router.GET("/stores", func(c *gin.Context) {
+        c.Redirect(http.StatusMovedPermanently, "/api/v1/stores")
+    })
+    router.GET("/stores/:id", func(c *gin.Context) {
+        c.Redirect(http.StatusMovedPermanently, "/api/v1/stores/"+c.Param("id"))
+    })
+
+    // Repositories
+    userRepo := repositories.NewUserRepository(db)
+    storeRepo := repositories.NewStoreRepository(db)
+
+    // Services
+    authService := services.NewAuthService(cfg, userRepo)
+
+    // Controllers
+    authController := controllers.NewAuthController(authService)
+    productController := controllers.NewProductController(db)
+    storeController := controllers.NewStoreController(storeRepo)
+
+    // API v1 routes
+    api := router.Group("/api/v1")
+    {
+        // Auth endpoints
+        api.POST("/register", authController.Register)
+        api.POST("/login", authController.Login)
+        api.GET("/profile", authController.GetProfile)
+
+        // Product endpoints
+        api.GET("/products", productController.GetProducts)
+        api.GET("/products/:id", productController.GetProductByID)
+
+        // Store endpoints
+        api.GET("/stores", storeController.GetAllStores)
+        api.GET("/stores/:id", storeController.GetStoreByID)
+
+        // Market Prices endpoint untuk Market Intelligence
+        api.GET("/market/prices", func(c *gin.Context) {
+            c.JSON(200, gin.H{
+                "success": true,
+                "data": []gin.H{
+                    {"commodity": "Cabai Merah", "price": 38000, "change": "+12%", "trend": "up"},
+                    {"commodity": "Bawang Merah", "price": 26000, "change": "-5%", "trend": "down"},
+                    {"commodity": "Beras Premium", "price": 13000, "change": "+3%", "trend": "up"},
+                    {"commodity": "Jagung", "price": 8000, "change": "+7%", "trend": "up"},
+                    {"commodity": "Kedelai", "price": 11000, "change": "-1%", "trend": "down"},
+                },
+            })
+        })
+
+        // Protected routes
+        protected := api.Group("/")
+        protected.Use(middleware.AuthMiddleware(cfg))
+        {
+            protected.GET("/profile", authController.GetProfile)
+        }
+    }
+
+    return router
+}

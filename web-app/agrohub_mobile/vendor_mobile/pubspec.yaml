@@ -1,0 +1,72 @@
+name: vendor_mobile
+description: AgroHub Vendor Mobile App - Platform for sellers and vendors
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  google_fonts: ^6.2.1
+  flutter_bloc: ^9.1.1
+  get_it: ^9.2.1
+  equatable: ^2.0.8
+  dio: ^5.9.2
+  shared_preferences: ^2.5.5
+  flutter_secure_storage: ^9.2.4
+  intl: ^0.20.2
+  device_info_plus: ^11.5.0
+  image_picker: ^1.2.2
+  internet_connection_checker: ^3.0.1
+  http: ^1.6.0
+  flutter_svg: ^2.3.0
+  cached_network_image: ^3.4.1
+  pull_to_refresh: ^2.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+
+    # LOGO
+    - assets/logo/
+
+    # IMAGES
+    - assets/images/
+
+    # ICONS
+    - assets/icons/
+
+    # MENU CARD BACKGROUND
+    - assets/menu/
+
+    # ANIMATION
+    - assets/animations/
+
+  fonts:
+    - family: Poppins
+      fonts:
+
+        - asset: assets/fonts/Poppins-Regular.ttf
+          weight: 400
+
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 500
+
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+          weight: 600
+
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700

@@ -1,0 +1,189 @@
+name: agrohub_customer
+description: AgroHub Customer Mobile App - Fresh from Local Farmers
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_dotenv: ^5.1.0
+
+  # =========================
+  # CORE UI
+  # =========================
+  cupertino_icons: ^1.0.8
+  google_fonts: ^6.2.1
+  flutter_svg: ^2.2.0
+  lottie: ^3.3.2
+  shimmer: ^3.0.0
+  flutter_animate: ^4.5.2
+  smooth_page_indicator: ^1.2.1
+  badges: ^3.1.2
+
+  # =========================
+  # STATE MANAGEMENT
+  # =========================
+  provider: ^6.1.5
+  flutter_bloc: ^8.1.6
+
+  # =========================
+  # NAVIGATION
+  # =========================
+  go_router: ^14.6.3
+
+  # =========================
+  # NETWORKING & API
+  # =========================
+  dio: ^5.9.0
+  connectivity_plus: ^7.0.0
+  http: ^1.2.2
+
+  # =========================
+  # STORAGE & SECURITY
+  # =========================
+  shared_preferences: ^2.5.3
+  flutter_secure_storage: ^9.2.4
+
+  # =========================
+  # LOCATION
+  # =========================
+  geolocator: ^14.0.2
+  geocoding: ^4.0.0
+  permission_handler: ^12.0.1
+
+  # =========================
+  # MAPS
+  # =========================
+  flutter_map: ^8.2.2
+  latlong2: ^0.9.1
+
+  # =========================
+  # IMAGE & MEDIA
+  # =========================
+  image_picker: ^1.2.0
+  cached_network_image: ^3.4.1
+  carousel_slider: ^5.1.1
+  
+  # 🔥 Pilih SALAH SATU untuk YouTube (Rekomendasi untuk Web: youtube_player_iframe)
+  youtube_player_iframe: ^5.0.0
+  # youtube_player_flutter: ^9.1.2  # COMMENT - tidak kompatibel dengan Web
+
+  # =========================
+  # E-COMMERCE
+  # =========================
+  flutter_rating_bar: ^4.0.1
+
+  # =========================
+  # REALTIME
+  # =========================
+  socket_io_client: ^3.1.2
+
+  # =========================
+  # PAYMENT
+  # =========================
+  flutter_stripe: ^12.1.0
+
+  # =========================
+  # UTILITIES
+  # =========================
+  intl: ^0.20.2
+  url_launcher: ^6.3.2
+
+  # =========================
+  # SPLASH & ICONS
+  # =========================
+  flutter_native_splash: ^2.4.6
+  flutter_launcher_icons: ^0.14.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    # =========================
+    # IMAGES
+    # =========================
+    - assets/images/aicard.png
+    - assets/images/dokterai.png
+    - assets/images/dokterchat.png
+    - assets/images/gmv.png
+    - assets/images/livecard.png
+    - assets/images/login_bg.png
+    - assets/images/splash_bg.png
+    - assets/images/aireceipe.png
+
+    # =========================
+    # ICONS
+    # =========================
+    - assets/icons/aiinsight.png
+
+    # =========================
+    # LOGO
+    # =========================
+    - assets/logo/logo-agrohub.png
+    - assets/logo/app_icon.png
+
+    # =========================
+    # ANIMATIONS
+    # =========================
+    - assets/animations/scanning_animation.json
+    - assets/animations/upload_animation.json
+
+    # =========================
+    # BANNERS
+    # =========================
+    - assets/banner/banner_1.png
+    - assets/banner/banner_2.png
+    - assets/banner/banner_3.png
+
+    # =========================
+    # FONTS
+    # =========================
+    - assets/fonts/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Poppins-Italic.ttf
+          weight: 400
+          style: italic
+
+# ==========================================
+# FLUTTER NATIVE SPLASH
+# ==========================================
+flutter_native_splash:
+  color: "#1B5E20"
+  image: assets/images/splash_bg.png
+  android: true
+  ios: true
+  web: false
+  android_12:
+    color: "#1B5E20"
+    image: assets/images/splash_bg.png
+
+# ==========================================
+# FLUTTER LAUNCHER ICONS
+# ==========================================
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo/app_icon.png"
+  min_sdk_android: 23
+  adaptive_icon_background: "#1B5E20"
+  adaptive_icon_foreground: "assets/logo/app_icon.png"

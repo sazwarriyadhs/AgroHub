@@ -1,0 +1,83 @@
+name: agrohub_express_mobile
+description: AgroHub Express Mobile - Logistics, Cargo, Driver & Fleet Management
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_animate: ^4.5.0
+
+  # UI
+  cupertino_icons: ^1.0.8
+  google_fonts: ^6.2.1
+  intl: ^0.19.0
+
+  # STATE MANAGEMENT (CLEAN)
+  flutter_riverpod: ^2.5.1
+
+  # ROUTING (STABLE DRIVER-LEVEL)
+  go_router: ^14.6.0
+
+  # API / NETWORK
+  dio: ^5.7.0
+  socket_io_client: ^2.0.3+1
+  flutter_dotenv: ^5.2.1
+
+  # STORAGE
+  shared_preferences: ^2.2.3
+
+  # LOCATION (ANDROID 14 SAFE)
+  geolocator: ^13.0.2
+  google_maps_flutter: ^2.7.0
+  permission_handler: ^11.3.1
+
+  # ROUTE POLYLINE
+  flutter_polyline_points: ^2.1.0
+
+  # NOTIFICATION
+  flutter_local_notifications: ^17.2.2
+
+  # UTILITIES
+  uuid: ^4.4.2
+  collection: ^1.18.0
+  cached_network_image: ^3.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  # ==================== ASSETS ====================
+  assets:
+    # LOGO FOLDER
+    - assets/logo/
+    - assets/logo/agroexpress.png
+    
+    # ICONS FOLDER
+    - assets/icons/
+    - assets/icons/mobil.png
+    - assets/icons/motor.png
+    
+    # HEADER FOLDER
+    - assets/header/
+    - assets/header/header.png
+    
+    # IMAGES FOLDER
+    - assets/images/
+    - assets/images/background_login.png
+    - assets/images/splash.png
+
+  # ==================== FONTS (Optional) ====================
+  # fonts:
+  #   - family: CustomFont
+  #     fonts:
+  #       - asset: assets/fonts/CustomFont-Regular.ttf

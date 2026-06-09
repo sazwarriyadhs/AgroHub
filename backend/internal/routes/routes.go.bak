@@ -1,0 +1,61 @@
+package routes
+
+import (
+    "database/sql"
+    "github.com/gin-gonic/gin"
+
+    "agrohub-backend/internal/config"
+    "agrohub-backend/internal/controllers"
+    "agrohub-backend/internal/middleware"
+    "agrohub-backend/internal/repositories"
+    "agrohub-backend/internal/services"
+)
+
+func SetupRoutes(cfg *config.Config, db *sql.DB) *gin.Engine {
+    router := gin.Default()
+
+    // Middleware
+    router.Use(middleware.CORSMiddleware())
+
+    // Health check endpoint
+    router.GET("/health", func(c *gin.Context) {
+        c.JSON(200, gin.H{
+            "status": "healthy",
+            "message": "AgroHub Backend Running",
+            "environment": cfg.AppEnv,
+            "tables": 37,
+        })
+    })
+
+    router.GET("/", func(c *gin.Context) {
+        c.JSON(200, gin.H{
+            "name": "AgroHub API",
+            "version": "1.0.0",
+            "database": "connected",
+        })
+    })
+
+    // Setup repositories
+    userRepo := repositories.NewUserRepository(db)
+    
+    // Setup services
+    authService := services.NewAuthService(cfg, userRepo)
+    
+    // Setup controllers
+    authController := controllers.NewAuthController(authService)
+
+    // API routes
+    api := router.Group("/api/v1")
+    {
+        api.POST("/register", authController.Register)
+        api.POST("/login", authController.Login)
+        
+        protected := api.Group("/")
+        protected.Use(middleware.AuthMiddleware(cfg))
+        {
+            protected.GET("/profile", authController.GetProfile)
+        }
+    }
+
+    return router
+}
